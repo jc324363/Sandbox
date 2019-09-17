@@ -9,6 +9,9 @@ class DrinkList:
     def __str__(self):
         return str([str(drink) for drink in self.drinks])
 
+    def __len__(self):
+        return len(self.drinks)
+
     def add(self, drink):
         self.drinks.append(drink)
 
@@ -22,6 +25,9 @@ class DrinkList:
 
     def get_alcohol_volume(self):
         return sum([drink.get_alcohol_volume() for drink in self.drinks if drink.is_alcoholic()])
+
+    def get_total_price(self):
+        return sum([drink.price for drink in self.drinks if drink.is_alcoholic()])
 
 
 def run_tests():
